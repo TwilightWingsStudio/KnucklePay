@@ -1,0 +1,21 @@
+#Ehhhh?
+.classpath
+.project
+.gradle/
+eclipse/
+repo/
+.settings/
+
+#Intermediate
+bin/
+build/
+/run/
+
+#IDEA Stuff
+.idea/
+/*.iml
+/*.ipr
+/*.iws
+
+#GfxSources
+*.psd
