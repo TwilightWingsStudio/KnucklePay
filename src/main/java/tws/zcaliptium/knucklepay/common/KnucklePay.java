@@ -8,8 +8,12 @@
 package tws.zcaliptium.knucklepay.common;
 
 import org.apache.logging.log4j.Logger;
+import org.spongepowered.api.Sponge;
+import org.spongepowered.api.service.economy.EconomyService;
 
 import net.minecraft.init.Blocks;
+import net.minecraftforge.fml.common.Optional;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -18,7 +22,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:spongeforge", version = ModInfo.VERSION)
+@Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:sponge", version = ModInfo.VERSION)
 public class KnucklePay
 {   
 	@Instance(ModInfo.MODID)
@@ -43,5 +47,11 @@ public class KnucklePay
     @EventHandler
     public void afterModsLoaded(FMLPostInitializationEvent event)
     {
+    	if (Loader.isModLoaded(SpongeBridge.MODID)) {
+    		SpongeBridge.hasSponge = true;
+        	SpongeBridge.economyInit();
+    	} else {
+    		modLog.warn("There is no SpongeForge installed!");
+    	}
     }
 }
