@@ -21,6 +21,8 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import tws.zcaliptium.knucklepay.common.command.CommandStatus;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:sponge", version = ModInfo.VERSION)
 public class KnucklePay
@@ -54,4 +56,9 @@ public class KnucklePay
     		modLog.warn("There is no SpongeForge installed!");
     	}
     }
+    
+    @EventHandler
+	public void serverLoad(FMLServerStartingEvent event) {
+		event.registerServerCommand(new CommandStatus());
+	}
 }

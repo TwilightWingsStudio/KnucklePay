@@ -10,6 +10,6 @@ package tws.zcaliptium.knucklepay.common;
 public class ModInfo
 {
     public static final String MODID = "knucklepay";
-    public static final String MODNAME = "Knuckle Pay";
+    public static final String MODNAME = "KnucklePay";
 	public static final String VERSION = "dev";
 }
