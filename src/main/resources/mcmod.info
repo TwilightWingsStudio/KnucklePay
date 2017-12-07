@@ -1,0 +1,16 @@
+[
+{
+  "modid": "knucklepay",
+  "name": "Knuckle Pay",
+  "description": "Placeholder description.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/TwilightWingsStudio/KnucklePay",
+  "updateUrl": "",
+  "authorList": ["ZCaliptium"],
+  "credits": "Sample text.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
