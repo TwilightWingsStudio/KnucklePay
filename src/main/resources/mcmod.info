@@ -9,7 +9,7 @@
   "updateUrl": "",
   "authorList": ["ZCaliptium"],
   "credits": "Sample text.",
-  "logoFile": "",
+  "logoFile": "assets/knucklepay/logo.png",
   "screenshots": [],
   "dependencies": []
 }
