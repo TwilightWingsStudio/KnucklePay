@@ -1,17 +1,22 @@
 #Ehhhh?
-.classpath
-.project
 .gradle/
-eclipse/
+run/
 repo/
-.settings/
 
 #Intermediate
 bin/
 build/
 /run/
 
+#Eclipse
+eclipse/
+.settings/
+.project
+.classpath
+*.launch
+
 #IDEA Stuff
+out
 .idea/
 /*.iml
 /*.ipr
