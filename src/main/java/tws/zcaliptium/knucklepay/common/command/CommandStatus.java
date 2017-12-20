@@ -34,7 +34,9 @@ public class CommandStatus extends CommandBase
     		sender.sendMessage(new TextComponentString(
     				"[KnucklePay] Status:" +
     				"\n  SpongeForge: " + (hasSponge ? "Yes" : "No") +
-    				"\n  Economy Plugin: " + (SpongeBridge.economyService != null ? "Yes" : "No")));
+    				"\n  Economy Plugin: " + (SpongeBridge.economyService != null ? "Yes" : "No") +
+    				"\n  Currencies Count: " + (SpongeBridge.economyService != null ? SpongeBridge.economyService.getCurrencies().size() : 0)
+    				));
     	}
     }
 
