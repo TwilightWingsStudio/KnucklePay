@@ -7,9 +7,23 @@
  ******************************************************************************/
 package tws.zcaliptium.knucklepay.common;
 
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import tws.zcaliptium.knucklepay.fex.StartupCommon;
+
 public class CommonProxy
 {
+    public void preInit(FMLPreInitializationEvent event)
+    {
+    }
+	
+	public void afterModsLoaded(FMLPostInitializationEvent event)
+	{
+	}
+	
 	public boolean isClient() {
 		return false;
 	}
+
+	public void registerEventHandlers() {}
 }

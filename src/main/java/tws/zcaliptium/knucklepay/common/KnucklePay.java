@@ -39,11 +39,14 @@ public class KnucklePay
     public void load(FMLPreInitializationEvent event)
 	{
     	modLog = event.getModLog();
+    	
+    	proxy.preInit(event);
 	}
 	
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+		proxy.registerEventHandlers();
     }
     
     @EventHandler
@@ -55,6 +58,10 @@ public class KnucklePay
     	} else {
     		modLog.warn("There is no SpongeForge installed!");
     	}
+    	
+    	// TODO: EconomyTransactionEvent listener for server side.
+    	
+    	proxy.afterModsLoaded(event);
     }
     
     @EventHandler
