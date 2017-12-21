@@ -24,6 +24,7 @@ public class SpongeTransactionListener implements EventListener<EconomyTransacti
             @Override
             public void run() {
             	// TODO: Balance update packet send here.
+            	KnucklePay.modLog.info("Catched transaction: " + event.toString());
             }
         });
     }
