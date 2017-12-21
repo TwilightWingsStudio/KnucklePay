@@ -59,8 +59,6 @@ public class KnucklePay
     		modLog.warn("There is no SpongeForge installed!");
     	}
     	
-    	// TODO: EconomyTransactionEvent listener for server side.
-    	
     	proxy.afterModsLoaded(event);
     }
     

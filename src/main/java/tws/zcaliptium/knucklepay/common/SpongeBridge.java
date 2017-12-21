@@ -8,9 +8,12 @@
 package tws.zcaliptium.knucklepay.common;
 
 import org.spongepowered.api.Sponge;
+import org.spongepowered.api.event.EventListener;
+import org.spongepowered.api.event.economy.EconomyTransactionEvent;
 import org.spongepowered.api.service.economy.EconomyService;
 
 import net.minecraftforge.fml.common.Optional;
+import tws.zcaliptium.knucklepay.common.handlers.SpongeTransactionListener;
 
 public class SpongeBridge
 {
@@ -26,8 +29,14 @@ public class SpongeBridge
     	if (optionalEconomyService.isPresent()) {
     		KnucklePay.modLog.info("Detected the Sponge economy plugin!");
     		economyService = optionalEconomyService.get();
+    		
+    		KnucklePay.modLog.info("Registering Sponge transactions listener.");
+    		EventListener<EconomyTransactionEvent> listener = new SpongeTransactionListener();
+    		Sponge.getEventManager().registerListener(KnucklePay.instance, EconomyTransactionEvent.class, listener);
     	} else {
     		KnucklePay.modLog.warn("There is no any economy Sponge plugin!");
     	}
     }
+    
+
 }

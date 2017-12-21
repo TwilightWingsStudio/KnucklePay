@@ -7,6 +7,8 @@
  ******************************************************************************/
 package tws.zcaliptium.knucklepay.client;
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.IThreadListener;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -22,6 +24,10 @@ public class ClientProxy extends CommonProxy
 	public void registerEventHandlers()
 	{
 		super.registerEventHandlers();
+		
+		BalanceHudOverlayHandler eventhandler1 = new BalanceHudOverlayHandler();
+		FMLCommonHandler.instance().bus().register(eventhandler1);
+		MinecraftForge.EVENT_BUS.register(eventhandler1);
 	}
 	
 	@Override
@@ -39,5 +45,11 @@ public class ClientProxy extends CommonProxy
 	@Override
 	public boolean isClient() {
 		return true;
+	}
+	
+	@Override
+	public IThreadListener getMainThreadListener()
+	{
+		return Minecraft.getMinecraft();
 	}
 }

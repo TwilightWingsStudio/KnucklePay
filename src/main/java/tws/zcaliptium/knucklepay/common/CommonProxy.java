@@ -7,8 +7,12 @@
  ******************************************************************************/
 package tws.zcaliptium.knucklepay.common;
 
+import net.minecraft.util.IThreadListener;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import tws.zcaliptium.knucklepay.common.handlers.CommonEventHandler;
 import tws.zcaliptium.knucklepay.fex.StartupCommon;
 
 public class CommonProxy
@@ -25,5 +29,11 @@ public class CommonProxy
 		return false;
 	}
 
-	public void registerEventHandlers() {}
+	public void registerEventHandlers()
+	{
+	}
+	
+	public IThreadListener getMainThreadListener() {
+		return FMLCommonHandler.instance().getSidedDelegate().getServer();
+	}
 }
