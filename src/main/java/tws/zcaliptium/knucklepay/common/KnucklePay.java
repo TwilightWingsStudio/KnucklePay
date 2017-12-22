@@ -12,6 +12,7 @@ import org.spongepowered.api.Sponge;
 import org.spongepowered.api.service.economy.EconomyService;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
@@ -34,6 +35,8 @@ public class KnucklePay
 	public static CommonProxy proxy;
 
 	public static Logger modLog;
+	
+	public static MinecraftServer minecraftServer; // Access to running server from all parts of mod.
 	
     @EventHandler
     public void load(FMLPreInitializationEvent event)
@@ -63,7 +66,10 @@ public class KnucklePay
     }
     
     @EventHandler
-	public void serverLoad(FMLServerStartingEvent event) {
+	public void serverLoad(FMLServerStartingEvent event)
+    {
+    	minecraftServer = event.getServer();
+    	
 		event.registerServerCommand(new CommandStatus());
 	}
 }
