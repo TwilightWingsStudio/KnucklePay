@@ -60,7 +60,8 @@ public class MsgSyncBalance implements IMessage, IMessageHandler<MsgSyncBalance,
             public void run() {
             	//KnucklePay.modLog.info("MsgSyncBalance ['" + message.currencyID + "', '" + message.balanceString + "']");
             	
-            	// TODO: You can put HUD update here.
+            	// TODO: Will be broken on multiple currency economy.
+            	BalanceHudOverlayHandler.balanceString = message.balanceString;
             }
         });
 		
