@@ -24,6 +24,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import tws.zcaliptium.knucklepay.common.command.CommandStatus;
+import tws.zcaliptium.knucklepay.common.network.PacketHandler;
 
 @Mod(modid = ModInfo.MODID, name = ModInfo.MODNAME, dependencies="after:sponge", version = ModInfo.VERSION)
 public class KnucklePay
@@ -44,6 +45,7 @@ public class KnucklePay
     	modLog = event.getModLog();
     	
     	proxy.preInit(event);
+    	PacketHandler.init(); // Register network packets.
 	}
 	
     @EventHandler
